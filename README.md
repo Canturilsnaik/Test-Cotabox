@@ -10,6 +10,7 @@ I made my test with pure HTML, CSS and Javascript, my first time used the librar
 - BEM CSS
 - Google Charts
 - ECMA 6
-============================
+
+============================================================================================================
 
 I preferred to use this technology because I feel comfortable but I enjoy learn new technologies. 
