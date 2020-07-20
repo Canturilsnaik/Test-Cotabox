@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test-Cotabox</title>
+
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <form class="form">
+      <div class="form__control">
+        <small class="form__error"></small>
+        <input class="form__input" id="first-name" type="text" placeholder="First Name">
+      </div>
+      
+      <div class="form__control">
+        <small class="form__error"></small>
+        <input class="form__input" id="last-name" type="text" placeholder="Last Name">
+      </div>
+
+      <div class="form__control">
+        <small class="form__error"></small>
+        <input class="form__input" id="participation" type="text" placeholder="Participation">
+      </div>
+    
+      <button class="form__btn" type="submit">SEND</button>
+    </form>
+  </header>
+
+  <main class="main">
+    <section class="main__section1">
+      <h1 class="section__h1">DATA</h1>
+      <p class="section__p">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </section>
+
+    <section class="main__section2">
+      <table class="section__table" border="1">
+        <tr>
+          <th class="table__number"> </th>
+          <th class="table__column">First Name</th>
+          <th class="table__column">Last Name</th>
+          <th class="table__column">Participation</th>
+        </tr>
+        <tr>
+          <td class="table__row table__number">1</td>
+          <td class="table__row">Carlos</td>
+          <td class="table__row">Moura</td>
+          <td class="table__row table__center">5%</td>
+        </tr>
+        <tr>
+          <td class="table__row table__number">2</td>
+          <td class="table__row">Fernanda</td>
+          <td class="table__row">Oliveira</td>
+          <td class="table__row table__center">15%</td>
+        </tr>
+        <tr>
+          <td class="table__row table__number">3</td>
+          <td class="table__row">Hugo</td>
+          <td class="table__row">Silva</td>
+          <td class="table__row table__center">20%</td>
+        </tr>
+        <tr>
+          <td class="table__row table__number">4</td>
+          <td class="table__row">Eliza</td>
+          <td class="table__row">Souza</td>
+          <td class="table__row table__center">20%</td>
+        </tr>
+        <tr>
+          <td class="table__row table__number">5</td>
+          <td class="table__row">Anderson</td>
+          <td class="table__row">Santos</td>
+          <td class="table__row table__center">40%</td>
+        </tr>
+      </table>
+
+      <div class="donutchart"></div>
+
+    </section>
+  </main>
+
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script>
+    google.charts.load('current', {packages: ['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart(){
+    let data,
+        options;
+
+    data = google.visualization.arrayToDataTable([
+      ['Participation', 'Collaboration'],
+      ['Hugo Silva', 20],
+      ['Carlos Moura', 5],
+      ['Eliza Souza', 20],
+      ['Fernanda Oliveira', 15],
+      ['Anderson Santos', 40],
+    ]);
+
+    options = {
+      pieHole: 0.5,
+      colors: ['#2c96dd','#15ba9a','#9c55b8','#bdc3c7','#e94a35']
+    };
+
+
+  let chart = new google.visualization.PieChart(document.querySelector('.donutchart'));
+  chart.draw(data, options);
+}
+
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
